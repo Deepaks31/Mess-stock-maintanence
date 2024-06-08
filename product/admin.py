@@ -4,4 +4,4 @@ from .models import SavedItem
 
 admin.site.register(SavedItem)
 
-# Register your models here.
+
