@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static "css/signup.css" %}}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
 </head>
 <body>
@@ -26,9 +26,6 @@
         <label for="email">Email</label>
         <input type="email" placeholder="Email or Phone" name="email" id="email">
 
-        <label for="role">Role</label>
-        
-
         <label for="password1">Password</label>
         <input type="password" placeholder="Password" id="password1" name="password1">
 
@@ -36,8 +33,8 @@
         <input type="password" placeholder="Confirm Password" id="password2" name="password2"><br>
         <button type="submit">Signup</button><br><br>
         <center>
-        <a href="{% url 'login' %}" >i have already account</a>
-        <center>
+        <a href="{% url 'login' %}" >I already have an account</a>
+        </center>
     </form>
 </body>
 </html>
