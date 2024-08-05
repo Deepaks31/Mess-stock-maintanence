@@ -41,6 +41,7 @@ body{
 table, th,tr, td {
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   
@@ -73,10 +74,6 @@ th, td {
 
  .container h2{
 margin-top: 2%;
-}
-
-.quantity{
-  text-align: center;
 }
 
 

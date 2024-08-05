@@ -1,37 +1,4 @@
-$(document).ready(function() {
-    var items = [
-        "Tomatoes",
-        "Potatoes",
-        "Onions",
-        "Garlic",
-        "Ginger",
-        "Cilantro",
-        "Egg",
-        "Mint",
-        "Green onions",
-        "Lentils",
-        "Chickpeas",
-        "Mung beans",
-        "Split peas",
-        "Soybeans",
-        "Red lentils",
-        "Green lentils",
-        "Pinto beans",
-        "Milk",
-        "Cheese",
-        "Butter",
-        "Almond milk",
-        "Bread",
-        "Rice"
-    ];
 
-    $("#item-autocomplete").autocomplete({
-        source: items,
-        select: function(event, ui) {
-            $("#items").val(ui.item.value);
-        }
-    });
-});
 
 function addItemAndDisplay() {
     var itemName = document.getElementById("items").value;
@@ -76,8 +43,7 @@ function addItemAndDisplay() {
         hiddenInputQuantity.value = quantity;
         newRow.appendChild(hiddenInputQuantity);
     }
-}
-
+}z
 
 function submitForm() {
     var neededDate = document.getElementById("neededDate").value;

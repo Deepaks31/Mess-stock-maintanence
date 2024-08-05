@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/order.css' %}">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">z
     
     <title>order</title>
 </head>
@@ -31,15 +28,14 @@
                 <tr>
                     <td>
                         <div class="custom-dropdown">
-                            <input type="text" id="item-autocomplete" placeholder="Start typing...">
-                            <select class="dropdown-select" id="items" name="items" style="display: none;">
+                            <select class="dropdown-select" id= "items" name="items" >
                                 <option value="Tomatoes">Tomatoes</option>
                                 <option value="Potatoes">Potatoes</option>
                                 <option value="Onions">Onions</option>
                                 <option value="Garlic">Garlic</option>
                                 <option value="Ginger">Ginger</option>
                                 <option value="Cilantro">Cilantro</option>
-                                <option value="Egg">Egg</option>
+                                <option value="egg">Egg</option>
                                 <option value="Mint">Mint</option>
                                 <option value="Green onions">Green onions</option>
                                 <option value="Lentils">Lentils</option>
@@ -59,7 +55,6 @@
                             </select>
                         </div>
                     </td>
-                    
                     <td><input type="number" class="quantity" name="quantity" id="quantity" max="100" min="1" value="1" required></td>
                     <td><button onclick="addItemAndDisplay()" type="button" class="btn btn-primary" id="submit-from">Add</button></td>
                 </tr>  
