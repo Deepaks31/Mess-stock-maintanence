@@ -52,6 +52,7 @@ def signup(request):
     return render (request,'signup.html')
 
 def login(request):
+   
     if request.method=='POST':
         username=request.POST.get('username')
         pass1=request.POST.get('pass')
