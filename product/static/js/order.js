@@ -1,5 +1,4 @@
 
-
 function addItemAndDisplay() {
     var itemName = document.getElementById("items").value;
     var quantity = document.getElementById("quantity").value;
