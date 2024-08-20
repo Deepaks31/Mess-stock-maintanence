@@ -1,105 +1,112 @@
+{% extends 'home.html' %}
 {% load static %}
+{% block title %}Order Page{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block extra_css %}
+    <!-- Link to custom CSS specific to this page -->
     <link rel="stylesheet" href="{% static 'css/order.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <title>Order</title>
-</head>
-<body>
-    <h2><center>ONLINE STORE</center></h2><br><br>
-    <form id="orderForm" action="{% url 'order' %}" method="post">
-        {% csrf_token %}
-        <div class="container">
-            <table style="width: 60%;">
-                <thead>
-                    <tr>
-                        <th>Item name</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody class="itemList">
-                    <tr>
-                        <td>
-                            <div class="custom-dropdown">
-                                <select class="dropdown-select" id="items" name="items" >
-                                    <option value="Tomatoes">Tomatoes</option>
-                                    <option value="Potatoes">Potatoes</option>
-                                    <option value="Onions">Onions</option>
-                                    <option value="Garlic">Garlic</option>
-                                    <option value="Ginger">Ginger</option>
-                                    <option value="Cilantro">Cilantro</option>
-                                    <option value="egg">Egg</option>
-                                    <option value="Mint">Mint</option>
-                                    <option value="Green onions">Green onions</option>
-                                    <option value="Lentils">Lentils</option>
-                                    <option value="Chickpeas">Chickpeas</option>
-                                    <option value="Mung beans">Mung beans</option>
-                                    <option value="Split peas">Split peas</option>
-                                    <option value="Soybeans">Soybeans</option>
-                                    <option value="Red lentils">Red lentils</option>
-                                    <option value="Green lentils">Green lentils</option>
-                                    <option value="Pinto beans">Pinto beans</option>
-                                    <option value="Milk">Milk</option>
-                                    <option value="Cheese">Cheese</option>
-                                    <option value="Butter">Butter</option>
-                                    <option value="Almond milk">Almond milk</option>
-                                    <option value="Bread">Bread</option>
-                                    <option value="Rice">Rice</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td><input type="number" class="quantity" name="quantity" id="quantity" max="100" min="1" value="1" style="text-align:center;" required></td>
-                        <td><button onclick="addItemAndDisplay()" type="button" class="btn btn-primary" id="submit-from">Add</button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="date" id="neededDate" name="needed_date">
-                        </td>
-                        <td><button type="submit" class="btn btn-dark">Submit</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+{% endblock %}
 
-        <div class="container">
-            <h2><center>PRODUCT INFORMATION</center></h2>
-            <table id="savedItemsTable" style="width: 60%;">
-                <thead>
-                    <tr>
-                        <th>Item name</th>
-                        <th>Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="saved_items">
-                    {% for item in items %}
-                    <tr>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td><button onclick="removeItem('{{ item.name }}')" type="button" class="btn btn-danger">Remove</button></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </form>
-    
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center">ONLINE STORE</h2><br><br>
+        <form id="orderForm" action="{% url 'order' %}" method="post">
+            {% csrf_token %}
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Item name</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody class="itemList">
+                        <tr>
+                            <td>
+                                <div class="custom-dropdown">
+                                    <select class="dropdown-select" id="items" name="items">
+                                        <option value="">Select an item</option>
+                                        <option value="Tomatoes">Tomatoes</option>
+                                        <option value="Potatoes">Potatoes</option>
+                                        <option value="Onions">Onions</option>
+                                        <option value="Garlic">Garlic</option>
+                                        <option value="Ginger">Ginger</option>
+                                        <option value="Cilantro">Cilantro</option>
+                                        <option value="Egg">Egg</option>
+                                        <option value="Mint">Mint</option>
+                                        <option value="Green onions">Green onions</option>
+                                        <option value="Lentils">Lentils</option>
+                                        <option value="Chickpeas">Chickpeas</option>
+                                        <option value="Mung beans">Mung beans</option>
+                                        <option value="Split peas">Split peas</option>
+                                        <option value="Soybeans">Soybeans</option>
+                                        <option value="Red lentils">Red lentils</option>
+                                        <option value="Green lentils">Green lentils</option>
+                                        <option value="Pinto beans">Pinto beans</option>
+                                        <option value="Milk">Milk</option>
+                                        <option value="Cheese">Cheese</option>
+                                        <option value="Butter">Butter</option>
+                                        <option value="Almond milk">Almond milk</option>
+                                        <option value="Bread">Bread</option>
+                                        <option value="Rice">Rice</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td><input type="number" class="quantity" name="quantity" id="quantity" max="100" min="1" value="1" style="text-align:center;" required></td>
+                            <td><button type="button" class="btn btn-primary" onclick="addItemAndDisplay()">Add</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" id="neededDate" name="needed_date">
+                            </td>
+                            <td><button type="submit" class="btn btn-dark">Submit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container mt-4">
+                <h2 class="text-center">PRODUCT INFORMATION</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Item name</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="saved_items">
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td><button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <!-- Link to custom JS specific to this page -->
     <script src="{% static 'js/order.js' %}"></script>
+    
+    <!-- Link to jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    
+    <!-- Link to Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Initialize Select2 -->
     <script>
         $(document).ready(function() {
             $('#items').select2({
                 placeholder: 'Select an item',
-                width: '70%'
+                width: '100%'
             });
         });
     </script>
-</body>
-</html>
+{% endblock %}

@@ -1,143 +1,111 @@
 {% load static %}
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{%static 'css/home.css'%}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    {% block extra_css %}{% endblock %}    
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <section class="sidebar{% if sidebar_collapsed %} close{% endif %}">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="{% static 'images/logo.png' %}" alt="logo">
+                    </span>
+                    <div class="text header-text">
+                        <span class="name"><h4>Mess Management</h4></span>
+                    </div>
+                </div>
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
 
-    <title>Home Page</title>
-  </head>
-  <body>
+            <div class="menu-bar">
+                <div class="menu">
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="{% url 'home' %}">
+                                <i class='bx bx-home-alt icon'></i>
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{% url 'order' %}">
+                                <i class='bx bx-spreadsheet icon'></i>
+                                <span class="text nav-text">Indent Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{% url 'item_list' %}">
+                                <i class='bx bx-cart icon'></i>
+                                <span class="text nav-text">Order Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-receipt icon'></i>
+                                <span class="text nav-text">Receipt Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-package icon'></i>
+                                <span class="text nav-text">Stock Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Sub-Store Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bxs-truck icon'></i>
+                                <span class="text nav-text">Consumption Tracking</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bxs-report icon'></i>
+                                <span class="text nav-text">Reports</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-cog icon'></i>
+                                <span class="text nav-text">Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-help-circle icon'></i>
+                                <span class="text nav-text">Help & Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{% url 'logout' %}">
+                                <i class='bx bx-log-out icon'></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-
-<div class="container">
-
-
-</div>
-
-
-
-{% csrf_token %}
-   <section class="sidebar close">
-      <header>
-        <div class="image-text">
-          <span class="image">
-            <img src="{% static 'images/logo.png' %}" alt="logo">
-          </span>
-          <div class="text header-text">
-            <span class="name"><h4>Mess management</h4></span>
-          </div>
-        </div>
-
-        <i class='bx bx-chevron-right toggle' ></i>       
-       </header>
-
-       <div class="menu-bar">
-        <div class="menu">
-          
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bx-home-alt icon'  ></i>
-                <span class="text nav-text">Dashboard</span>
-                </a>
-               
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="{% url 'order' %}">
-                <i class='bx bx-spreadsheet icon' id="order"></i>
-                    <span class="text nav-text">Indent Management</span>
-                    
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                 
-                <i class='bx bx-cart icon'></i>  
-                <span class="text nav-text">Order Management</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bx-receipt icon'></i>
-                <span class="text nav-text">Receipt Management</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bx-package icon'></i>              
-                  <span class="text nav-text">Stock Management</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bx-store icon'></i>            
-                  <span class="text nav-text">Sub-Store Management</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bxs-truck icon'></i>              
-                  <span class="text nav-text">Consumption Tracking</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bxs-report icon'></i>             
-                  <span class="text nav-text">Reports</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bx-cog icon'></i>             
-                  <span class="text nav-text">Settings</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="#">
-                <i class='bx bx-help-circle icon'></i>              
-                  <span class="text nav-text">Help & support</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="menu-links">
-            <li class="nav-link">
-              <a href="login.html">
-                <i class='bx bx-log-out icon'></i>                
-                  <span class="text nav-text">logout</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
+        <main class="main-content">
+            {% block content %}
+            <!-- Default content or placeholder -->
+            {% endblock %}
+        </main>
+    </div>
 
     <script src="{% static 'js/home.js' %}"></script>
-  </body>
+    {% block extra_js %}{% endblock %}
+</body>
 </html>
