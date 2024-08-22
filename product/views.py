@@ -43,9 +43,21 @@ def edit_item(request, id):
         item.needed_date = needed_date
         item.save()
 
-        return redirect('saved_items_list')
+        return redirect('item_list')
 
     return render(request, 'edit_item.html', {'item': item})
+@login_required(login_url='login')
+def delete_item(request, item_id):
+    item = get_object_or_404(SavedItem, id=item_id)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('item_list')
+
+@login_required(login_url='login')
+def approve_order(request):
+    # Add logic to approve the order here
+    # For now, we'll just redirect back to the item list
+    return redirect('item_list')
 
 def signup(request):
     if request.method == 'POST':

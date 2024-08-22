@@ -1,13 +1,11 @@
-/* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: white;
+    background-color:white;
     margin: 0;
     padding: 20px;
     color: #333;
 }
 
-/* Container for the items list */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -17,14 +15,12 @@ body {
     border-radius: 8px;
 }
 
-/* Heading */
 h1 {
     text-align: center;
-    color: #090e09;
+    color: #4CAF50;
     margin-bottom: 20px;
 }
 
-/* List styling */
 ul {
     list-style-type: none;
     padding: 0;
@@ -41,7 +37,6 @@ li {
     align-items: center;
 }
 
-/* Item details with equal spacing */
 .items {
     display: flex;
     width: 100%;
@@ -49,7 +44,6 @@ li {
     align-items: center;
 }
 
-/* Individual item fields */
 .item-name, .item-quantity, .item-date {
     flex: 1;
     text-align: center;
@@ -68,8 +62,7 @@ li {
     color: #777;
 }
 
-/* Edit button styling */
-.edit-button {
+.edit-button, .delete-button {
     background-color: #4CAF50;
     color: white;
     padding: 8px 12px;
@@ -78,8 +71,42 @@ li {
     font-size: 0.9em;
     margin-left: 15px;
     transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
 }
 
 .edit-button:hover {
     background-color: #45a049;
+}
+
+.approve-order {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.approve-button {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.approve-button:hover {
+    background-color: #1a5276;
+}
+
+.edit{
+    display: inline-flex;
 }

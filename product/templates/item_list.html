@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +18,20 @@
                         <span class="item-quantity">Quantity: {{ item.quantity }}</span>
                         <span class="item-date">Needed by: {{ item.needed_date }}</span>
                     </div>
-                    <div>
+                    <div class="edit">
                         <a href="{% url 'edit_item' item.id %}" class="edit-button">Edit</a>
+                        <form action="{% url 'delete_item' item.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button"><b>-</b></button>
+                        </form>
                     </div>
                 </li>
             {% endfor %}
         </ul>
+
+        <div class="approve-order">
+            <a href="{% url 'approve_order' %}" class="approve-button">Approve Order</a>
+        </div>
     </div>
-    
 </body>
 </html>
-

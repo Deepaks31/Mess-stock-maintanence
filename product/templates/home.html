@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <title>{% block title %}Home{% endblock %}</title>
+    <title>Home</title>
+    
 </head>
 <body>
     <div class="container">
@@ -85,12 +86,14 @@
             </div>
         </section>
 
+
         <main class="main-content">
-            {% block content %}
-            <!-- Default content or placeholder -->
-            {% endblock %}
+           
+            
         </main>
+
     </div>
+    
 
     <script src="{% static 'js/home.js' %}"></script>
 </body>
