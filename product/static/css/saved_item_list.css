@@ -1,0 +1,85 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Container for the items list */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #E4E9F7;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #090e09;
+    margin-bottom: 20px;
+}
+
+/* List styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Item details with equal spacing */
+.items {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Individual item fields */
+.item-name, .item-quantity, .item-date {
+    flex: 1;
+    text-align: center;
+}
+
+.item-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.item-quantity {
+    color: #555;
+}
+
+.item-date {
+    color: #777;
+}
+
+/* Edit button styling */
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}

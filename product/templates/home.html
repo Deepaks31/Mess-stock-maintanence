@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    {% block extra_css %}{% endblock %}    
     <title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
@@ -76,18 +75,6 @@
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#">
-                                <i class='bx bx-cog icon'></i>
-                                <span class="text nav-text">Settings</span>
-                            </a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='bx bx-help-circle icon'></i>
-                                <span class="text nav-text">Help & Support</span>
-                            </a>
-                        </li>
-                        <li class="nav-link">
                             <a href="{% url 'logout' %}">
                                 <i class='bx bx-log-out icon'></i>
                                 <span class="text nav-text">Logout</span>
@@ -106,6 +93,5 @@
     </div>
 
     <script src="{% static 'js/home.js' %}"></script>
-    {% block extra_js %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+    <link rel="stylesheet" href="{% static 'css/edit_item.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Item</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="item_name">Item Name:</label>
+                <input type="text" id="item_name" name="item_name" value="{{ item.item_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="{{ item.quantity }}" required>
+            </div>
+            <div class="form-group">
+                <label for="needed_date">Needed Date:</label>
+                <input type="date" id="needed_date" name="needed_date" value="{{ item.needed_date }}" required>
+            </div>
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
