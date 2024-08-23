@@ -15,7 +15,6 @@ def order(request):
         quantities = request.POST.getlist('quantity[]')
         needed_date = request.POST.get('needed_date')
 
-        # Ensure input is valid before saving
         for item_name, quantity in zip(items, quantities):
             if item_name.strip() and quantity.strip():
                 SavedItem.objects.create(item_name=item_name, quantity=quantity, needed_date=needed_date)
@@ -26,7 +25,7 @@ def order(request):
 
 @login_required(login_url='login')
 def saved_items_list(request):
-    saved_items = SavedItem.objects.all()  # Retrieve all saved items
+    saved_items = SavedItem.objects.all()  
     return render(request, 'item_list.html', {'saved_items': saved_items})
 
 def edit_item(request, id):
@@ -37,7 +36,6 @@ def edit_item(request, id):
         quantity = request.POST.get('quantity')
         needed_date = request.POST.get('needed_date')
 
-        # Update the item
         item.item_name = item_name
         item.quantity = quantity
         item.needed_date = needed_date
@@ -55,8 +53,7 @@ def delete_item(request, item_id):
 
 @login_required(login_url='login')
 def approve_order(request):
-    # Add logic to approve the order here
-    # For now, we'll just redirect back to the item list
+   
     return redirect('item_list')
 
 def signup(request):
