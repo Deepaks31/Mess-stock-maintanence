@@ -1,26 +1,25 @@
+
 function addItemAndDisplay() {
-    var itemName = document.getElementById("item").value;
+    var itemName = document.getElementById("items").value;
     var quantity = document.getElementById("quantity").value;
     
     if (itemName && quantity) {
-        // Create a new row for the saved items table
         var newRow = document.createElement("tr");
 
-        // Create columns for item name and quantity
         var itemNameCol = document.createElement("td");
         itemNameCol.textContent = itemName;
         newRow.appendChild(itemNameCol);
 
+        // Create column for quantity
         var quantityCol = document.createElement("td");
         quantityCol.textContent = quantity;
         newRow.appendChild(quantityCol);
 
-        // Create a remove button
+        // Create remove button
         var removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.classList.add("btn", "btn-danger");
         removeButton.onclick = function () {
-            // Remove the corresponding row when the remove button is clicked
             newRow.remove();
         };
         var actionCol = document.createElement("td");
@@ -28,6 +27,34 @@ function addItemAndDisplay() {
         newRow.appendChild(actionCol);
 
         // Append the new row to the saved items table
-        document.getElementById("savedItemList").appendChild(newRow);
+        document.getElementById("saved_items").appendChild(newRow);
+        
+        // Add hidden inputs with separate name attributes
+        var hiddenInputName = document.createElement("input");
+        hiddenInputName.type = "hidden";
+        hiddenInputName.name = "item[]"; // Use [] to ensure it's submitted as an array
+        hiddenInputName.value = itemName;
+        newRow.appendChild(hiddenInputName);
+        
+        var hiddenInputQuantity = document.createElement("input");
+        hiddenInputQuantity.type = "hidden";
+        hiddenInputQuantity.name = "quantity[]"; // Use [] to ensure it's submitted as an array
+        hiddenInputQuantity.value = quantity;
+        newRow.appendChild(hiddenInputQuantity);
     }
+}z
+
+function submitForm() {
+    var neededDate = document.getElementById("neededDate").value;
+
+    var itemRows = document.querySelectorAll("#itemList tr");
+    itemRows.forEach(function(row) {
+        var hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = "needed_date";
+        hiddenInput.value = neededDate;
+        row.appendChild(hiddenInput);
+    });
+
+    document.getElementById("orderForm").submit();
 }

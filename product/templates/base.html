@@ -1,17 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <title>Home</title>
-    
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <title>{% block title %}Home{% endblock %}</title>
+    </head>
 <body>
     <div class="container">
-        <section class="sidebar{% if sidebar_collapsed %} close{% endif %}">
+        <section class="sidebar">
             <header>
                 <div class="image-text">
                     <span class="image">
@@ -28,7 +27,7 @@
                 <div class="menu">
                     <ul class="menu-links">
                         <li class="nav-link">
-                            <a href="{% url 'home' %}">
+                            <a href="{% url 'base' %}">
                                 <i class='bx bx-home-alt icon'></i>
                                 <span class="text nav-text">Dashboard</span>
                             </a>
@@ -88,7 +87,9 @@
 
 
         <main class="main-content">
-           
+            {% block content %}
+
+            {% endblock %}
             
         </main>
 

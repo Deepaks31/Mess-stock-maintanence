@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
-def home(request):
-    return render(request, 'home.html')
+def base(request):
+    return render(request, 'base.html')
 
 @login_required(login_url='login')
 def order(request):
@@ -79,7 +79,7 @@ def login(request):
         user = authenticate(request, username=username, password=pass1)
         if user is not None:
             auth_login(request, user)
-            return redirect('home')
+            return redirect('base')
         else:
             return HttpResponse("Username or Password is incorrect!")
 
